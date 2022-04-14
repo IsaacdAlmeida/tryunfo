@@ -12,6 +12,7 @@ class Form extends React.Component {
         <label htmlFor="card-name">
           Nome
           <input
+            name="cardName" // igual ao exercício, funciona colocando a tag name // https://www.w3schools.com/tags/att_name.asp#:~:text=The%20name%20attribute%20specifies%20a,to%20target%20a%20form%20submission.
             data-testid="name-input"
             type="text"
             id="card-name"
