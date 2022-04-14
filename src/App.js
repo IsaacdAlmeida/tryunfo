@@ -17,8 +17,9 @@ class App extends React.Component {
     };
   }
 
-  onInputChange = ({ target }) => {
-    const { name, value } = target;
+  onInputChange = ({ target }) => { // essa função -> aqui https://github.com/IsaacdAlmeida/trybe-exercicios/blob/main/front-end/bloco-11-componentes-estado-eventos-forms-react/dia-02-forms-react/pratica/forms/src/Form.js
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
@@ -34,11 +35,25 @@ class App extends React.Component {
 
         <Form
           onInputChange={ this.onInputChange } // pega a função e passa como props
-          value={ cardName }
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardImage={ cardImage }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
         />
 
         <Card
           cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardImage={ cardImage }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
         />
       </div>
     );
