@@ -20,7 +20,7 @@ class App extends React.Component {
 
   onInputChange = ({ target }) => { // essa função -> aqui https://github.com/IsaacdAlmeida/trybe-exercicios/blob/main/front-end/bloco-11-componentes-estado-eventos-forms-react/dia-02-forms-react/pratica/forms/src/Form.js
     const { name } = target;
- 
+
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
@@ -61,6 +61,7 @@ class App extends React.Component {
   // https://stackoverflow.com/questions/42038590/when-to-use-react-setstate-callback
   // o conceito para estar dentro da callback, é porque as mudanças no estado precisam ser instaneas
   // fora da callback ele não atualizava o estado e array de mandeira correta
+  // as consts do this.state precisam estar dentro da callback também
   render() {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3, cardRare, cardTrunfo,
