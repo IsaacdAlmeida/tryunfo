@@ -109,6 +109,7 @@ class Form extends React.Component {
 
         <div>
           <button
+            name="isSaveButtonDisabled"
             type="button"
             data-testid="save-button"
             disabled={ isSaveButtonDisabled } // button recebe disabled e não value
