@@ -9,9 +9,9 @@ class App extends React.Component {
       cardName: '',
       cardDescription: '',
       cardImage: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
       cardRare: '',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
@@ -20,42 +20,47 @@ class App extends React.Component {
 
   onInputChange = ({ target }) => { // essa função -> aqui https://github.com/IsaacdAlmeida/trybe-exercicios/blob/main/front-end/bloco-11-componentes-estado-eventos-forms-react/dia-02-forms-react/pratica/forms/src/Form.js
     const { name } = target;
-    const { cardName, cardDescription, cardImage,
-      cardAttr1, cardAttr2, cardAttr3, cardRare } = this.state;
-
+ 
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-    });
+    }, () => {
+      const { cardName, cardDescription, cardImage,
+        cardAttr1, cardAttr2, cardAttr3, cardRare } = this.state;
 
-    const numberOne = parseInt(cardAttr1, 10); // https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
-    const numberTwo = parseInt(cardAttr2, 10);
-    const numberThree = parseInt(cardAttr3, 10);
-    const MAX_VALUE = 90;
-    const MIN_VALUE = 0;
-    const MAX_POINTS = 210;
-    const atributeSum = numberOne + numberTwo + numberThree;
+      const numberOne = parseInt(cardAttr1, 10); // https://stackoverflow.com/questions/1133770/how-to-convert-a-string-to-an-integer-in-javascript
+      const numberTwo = parseInt(cardAttr2, 10);
+      const numberThree = parseInt(cardAttr3, 10);
+      const MAX_VALUE = 90;
+      const MIN_VALUE = 0;
+      const MAX_POINTS = 210;
+      const atributeSum = numberOne + numberTwo + numberThree;
 
-    const errorCase = [
-      cardName.length !== 0,
-      cardDescription.length !== 0,
-      cardImage.length !== 0,
-      cardRare.length !== 0,
-      numberOne <= MAX_VALUE,
-      numberOne >= MIN_VALUE,
-      numberTwo <= MAX_VALUE,
-      numberTwo >= MIN_VALUE,
-      numberThree <= MAX_VALUE,
-      numberThree >= MIN_VALUE,
-      atributeSum <= MAX_POINTS,
-    ];
+      const errorCase = [
+        cardName.length !== 0,
+        cardDescription.length !== 0,
+        cardImage.length !== 0,
+        cardRare.length !== 0,
+        numberOne <= MAX_VALUE,
+        numberOne >= MIN_VALUE,
+        numberTwo <= MAX_VALUE,
+        numberTwo >= MIN_VALUE,
+        numberThree <= MAX_VALUE,
+        numberThree >= MIN_VALUE,
+        atributeSum <= MAX_POINTS,
+      ];
 
-    const isDisabled = errorCase.every((item) => item === true);
-    this.setState({
-      isSaveButtonDisabled: !isDisabled,
+      const isDisabled = errorCase.every((item) => item === true);
+      this.setState({
+        isSaveButtonDisabled: !isDisabled,
+      });
     });
   }
 
+  // esse código precisa estar dentro da callback de setState
+  // https://stackoverflow.com/questions/42038590/when-to-use-react-setstate-callback
+  // o conceito para estar dentro da callback, é porque as mudanças no estado precisam ser instaneas
+  // fora da callback ele não atualizava o estado e array de mandeira correta
   render() {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3, cardRare, cardTrunfo,
