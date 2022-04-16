@@ -16,6 +16,7 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
       cardArray: [],
+      hasTrunfo: false,
     };
   }
 
@@ -66,7 +67,7 @@ class App extends React.Component {
 
   onSaveButtonClick = () => {
     const { cardName, cardDescription, cardImage,
-      cardAttr1, cardAttr2, cardAttr3, cardRare, cardArray } = this.state;
+      cardAttr1, cardAttr2, cardAttr3, cardRare, cardTrunfo } = this.state;
 
     const topTrumpCards = {
       cardName,
@@ -76,6 +77,7 @@ class App extends React.Component {
       cardAttr2,
       cardAttr3,
       cardRare,
+      cardTrunfo,
     };
 
     this.setState((prevState) => ({
@@ -90,8 +92,11 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
     }));
-
-    console.log(cardArray);
+    if (cardTrunfo === true) {
+      this.setState({
+        hasTrunfo: true,
+      });
+    }
   }
 
   // criei a função do requisito 6
@@ -101,10 +106,12 @@ class App extends React.Component {
   // já coloco no estado o spread do array cardArray e adiciono o novo topTrumpCards
   // ao mesmo tempo já seto os valores para inicio novamente;
 
+  // Agradecimento ao Antonio que me indicou o caminho de onde chamar a condição para verificar se a carta em trunfo
+
   render() {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3, cardRare, cardTrunfo,
-      isSaveButtonDisabled } = this.state;
+      isSaveButtonDisabled, hasTrunfo } = this.state;
 
     return (
       <div>
@@ -122,6 +129,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.onSaveButtonClick }
+          hasTrunfo={ hasTrunfo }
         />
 
         <Card
