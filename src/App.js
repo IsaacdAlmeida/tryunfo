@@ -9,12 +9,13 @@ class App extends React.Component {
       cardName: '',
       cardDescription: '',
       cardImage: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
-      cardRare: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
+      cardArray: [],
     };
   }
 
@@ -62,6 +63,44 @@ class App extends React.Component {
   // o conceito para estar dentro da callback, é porque as mudanças no estado precisam ser instaneas
   // fora da callback ele não atualizava o estado e array de mandeira correta
   // as consts do this.state precisam estar dentro da callback também
+
+  onSaveButtonClick = () => {
+    const { cardName, cardDescription, cardImage,
+      cardAttr1, cardAttr2, cardAttr3, cardRare, cardArray } = this.state;
+
+    const topTrumpCards = {
+      cardName,
+      cardDescription,
+      cardImage,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardRare,
+    };
+
+    this.setState((prevState) => ({
+      cardArray: [...prevState.cardArray, topTrumpCards],
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+
+    console.log(cardArray);
+  }
+
+  // criei a função do requisito 6
+  // recebeos estados primeiro
+  // depois passo as infos que a carta vai receber
+  // set o estado novo com uma callback
+  // já coloco no estado o spread do array cardArray e adiciono o novo topTrumpCards
+  // ao mesmo tempo já seto os valores para inicio novamente;
+
   render() {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3, cardRare, cardTrunfo,
@@ -82,6 +121,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
 
         <Card
