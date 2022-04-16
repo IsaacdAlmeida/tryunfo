@@ -108,6 +108,13 @@ class App extends React.Component {
 
   // Agradecimento ao Antonio que me indicou o caminho de onde chamar a condição para verificar se a carta em trunfo
 
+  deleteCard = ({ target }) => {
+    const { cardArray } = this.state;
+    this.setState({
+      cardArray: cardArray.filter((item) => item.cardName !== target.value),
+    });
+  }
+
   render() {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3, cardRare, cardTrunfo,
@@ -144,20 +151,31 @@ class App extends React.Component {
         />
 
         { cardArray.map((item) => (
-          <Card
-            key={ item.cardName }
-            cardName={ item.cardName }
-            cardDescription={ item.cardDescription }
-            cardImage={ item.cardImage }
-            cardAttr1={ item.cardAttr1 }
-            cardAttr2={ item.cardAttr2 }
-            cardAttr3={ item.cardAttr3 }
-            cardRare={ item.cardRare }
-            cardTrunfo={ item.cardTrunfo }
-          />)) }
+          <div key={ item.cardName }>
+            <Card
+              cardName={ item.cardName }
+              cardDescription={ item.cardDescription }
+              cardImage={ item.cardImage }
+              cardAttr1={ item.cardAttr1 }
+              cardAttr2={ item.cardAttr2 }
+              cardAttr3={ item.cardAttr3 }
+              cardRare={ item.cardRare }
+              cardTrunfo={ item.cardTrunfo }
+            />
+            <button
+              type="button"
+              value={ item.cardName }
+              data-testid="delete-button"
+              onClick={ this.deleteCard }
+            >
+              Exluir
+            </button>
+          </div>)) }
       </div>
     );
   }
 }
+
+// https://stackoverflow.com/questions/53498281/react-read-value-of-button-clicked -> requisito 09
 
 export default App;
