@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import './styles/App.module.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -122,8 +123,10 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1>Tryunfo</h1>
 
+        <header className="header-container">
+          <h1>Tryunfo</h1>
+        </header>
         <Form
           onInputChange={ this.onInputChange } // pega a função e passa como props
           cardName={ cardName }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/Form.module.css'
 
 class Form extends React.Component {
   render() {
@@ -8,9 +9,9 @@ class Form extends React.Component {
       isSaveButtonDisabled, onInputChange, onSaveButtonClick } = this.props;
 
     return (
-      <div>
+      <div className="form-container">
         <label htmlFor="card-name">
-          Nome
+          <span>Nome</span>
           <input
             name="cardName" // igual ao exercício, funciona colocando a tag name // https://www.w3schools.com/tags/att_name.asp#:~:text=The%20name%20attribute%20specifies%20a,to%20target%20a%20form%20submission.
             data-testid="name-input"
