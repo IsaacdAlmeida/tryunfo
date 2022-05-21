@@ -11,6 +11,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "styled-components": "^5.3.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -21,9 +22,7 @@
     "lint:styles": "npx stylelint '**/*.css'",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx"
   },
-  "eslintConfig": {
-  
-  },
+  "eslintConfig": {},
   "browserslist": {
     "production": [
       ">0.2%",

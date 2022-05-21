@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import './styles/App.module.css'
+import './styles/App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -127,32 +127,33 @@ class App extends React.Component {
         <header className="header-container">
           <h1>Tryunfo</h1>
         </header>
-        <Form
-          onInputChange={ this.onInputChange } // pega a função e passa como props
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardImage={ cardImage }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onSaveButtonClick={ this.onSaveButtonClick }
-          hasTrunfo={ hasTrunfo }
-        />
+        <div className="content-container">
+          <Form
+            onInputChange={ this.onInputChange } // pega a função e passa como props
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardImage={ cardImage }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ this.onSaveButtonClick }
+            hasTrunfo={ hasTrunfo }
+          />
 
-        <Card
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardImage={ cardImage }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardRare={ cardRare }
-          cardTrunfo={ cardTrunfo }
-        />
-
+          <Card
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardImage={ cardImage }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+          />
+        </div>
         { cardArray.map((item) => (
           <div key={ item.cardName }>
             <Card

@@ -11,3 +11,7 @@
   color: var(--headline-color);
   text-transform: uppercase;
 }
+
+.content-container {
+  display: flex;
+}

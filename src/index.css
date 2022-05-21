@@ -1,12 +1,12 @@
 :root {
-  --background-color: #16161a;
+  --background-color: #004643;
   --headline-color: #fffffe;
-  --text-color: #94a1b2;
-  --button-color: #7f5af0;
-  --button-text: #fffffe;
-  --highlight-color:#7f5af0;
-  --secondary-color: #72757e;
-  --tertiary-color: #2cb67d;
+  --text-color: #abd1c6;
+  --button-color: #f9bc60;
+  --button-text: #001e1d;
+  --highlight-color: #f9bc60;
+  --secondary-color: #abd1c6;
+  --tertiary-color: #e16162;
 }
 
 body {
@@ -35,4 +35,10 @@ ol, ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
