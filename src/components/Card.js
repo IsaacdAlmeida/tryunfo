@@ -10,47 +10,58 @@ class Card extends React.Component {
     return (
       <div className="card-page-container">
         <div className="card-container">
-          <p
-            data-testid="name-card"
-          >
-            { cardName }
-          </p>
+          
+          <div className="headline-container">
+            <h2
+              data-testid="name-card"
+            >
+              { cardName }
+            </h2>
+          </div>
 
-          <img
-            src={ cardImage }
-            alt={ cardName }
-            data-testid="image-card"
-          />
+          <div className="image-container">
+            <img
+              src={ cardImage }
+              alt={ cardName }
+              data-testid="image-card"
+            />
+          </div>
 
-          <p
-            data-testid="description-card"
-          >
-            { cardDescription }
-          </p>
+          <div className="text-description-container">
+            <p
+              data-testid="description-card"
+            >
+              { cardDescription }
+            </p>
+          </div>
 
-          <p
-            data-testid="attr1-card"
-          >
-            { cardAttr1 }
-          </p>
+          <div className="text-attr-container">
+            <p
+              data-testid="attr1-card"
+            >
+              { cardAttr1 }
+            </p>
 
-          <p
-            data-testid="attr2-card"
-          >
-            { cardAttr2 }
-          </p>
+            <p
+              data-testid="attr2-card"
+            >
+              { cardAttr2 }
+            </p>
 
-          <p
-            data-testid="attr3-card"
-          >
-            { cardAttr3 }
-          </p>
+            <p
+              data-testid="attr3-card"
+            >
+              { cardAttr3 }
+            </p>
+          </div>
 
+          <div className="text-rare-container">
           <p
             data-testid="rare-card"
           >
             { cardRare }
           </p>
+          </div>
 
           { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
         </div>
