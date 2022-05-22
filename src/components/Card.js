@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/Card.css'
 
 class Card extends React.Component {
   render() {
@@ -7,51 +8,64 @@ class Card extends React.Component {
       cardAttr3, cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
-      <div>
-        <p
-          data-testid="name-card"
-        >
-          { cardName }
-        </p>
+      <div className="card-page-container">
+        <div className="card-container">
+          
+          <div className="headline-container">
+            <h2
+              data-testid="name-card"
+            >
+              { cardName }
+            </h2>
+          </div>
 
-        <img
-          src={ cardImage }
-          alt={ cardName }
-          data-testid="image-card"
-        />
+          <div className="image-container">
+            <img
+              src={ cardImage }
+              alt={ cardName }
+              data-testid="image-card"
+            />
+          </div>
 
-        <p
-          data-testid="description-card"
-        >
-          { cardDescription }
-        </p>
+          <div className="text-description-container">
+            <p
+              data-testid="description-card"
+            >
+              { cardDescription }
+            </p>
+          </div>
 
-        <p
-          data-testid="attr1-card"
-        >
-          { cardAttr1 }
-        </p>
+          <div className="text-attr-container">
+            <p
+              data-testid="attr1-card"
+            >
+              { cardAttr1 }
+            </p>
 
-        <p
-          data-testid="attr2-card"
-        >
-          { cardAttr2 }
-        </p>
+            <p
+              data-testid="attr2-card"
+            >
+              { cardAttr2 }
+            </p>
 
-        <p
-          data-testid="attr3-card"
-        >
-          { cardAttr3 }
-        </p>
+            <p
+              data-testid="attr3-card"
+            >
+              { cardAttr3 }
+            </p>
+          </div>
 
-        <p
-          data-testid="rare-card"
-        >
-          { cardRare }
-        </p>
-
-        { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
-
+          <div className="text-rare-container">
+          <p
+            data-testid="rare-card"
+          >
+            { cardRare }
+          </p>
+          </div>
+          <div className="text-trunfo-container">
+            { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
+          </div>
+        </div>
       </div>
     );
   }
